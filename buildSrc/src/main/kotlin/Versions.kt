@@ -1,0 +1,23 @@
+object Versions {
+
+    const val coreKtx = "1.12.0"
+    const val lifecycleRunTimeKtx = "2.7.0"
+    const val activityCompose = "1.8.2"
+    const val composeBom = "2023.08.00"
+    const val jUnit = "4.13.2"
+    const val textExtJUnit = "1.1.5"
+    const val espressoCore = "3.5.1"
+    const val appCompat = "1.6.1"
+    const val material = "1.11.0"
+    const val ktor = "2.3.8"
+    const val coil = "2.4.0"
+    const val splashScreen = "1.1.0-alpha02"
+    const val lifeCycleViewModel = "2.7.0"
+    const val composeNavigation= "2.7.6"
+    const val hiltAndroid = "2.48"
+    const val kotlinXSerialization = "1.6.0-RC"
+    const val hiltNavigationCompose = "1.1.0"
+    const val coroutines  = "1.7.3"
+    const val pagingRuntimeKtx  = "3.2.1"
+    const val pagingCompose  = "3.3.0-alpha02"
+}
