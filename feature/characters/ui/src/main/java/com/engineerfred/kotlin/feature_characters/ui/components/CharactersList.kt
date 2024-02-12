@@ -24,12 +24,13 @@ import androidx.compose.ui.unit.sp
 import androidx.paging.LoadState
 import androidx.paging.compose.LazyPagingItems
 import androidx.paging.compose.itemContentType
-import com.engineerfred.kotlin.feature_characters.domain.DomainCharacter
+import com.engineerfred.kotlin.feature_characters.domain.model.Character
 
 @Composable
 fun CharactersList(
-    characters: LazyPagingItems<DomainCharacter>,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    characters: LazyPagingItems<Character>,
+    onCardClick: (Long) -> Unit
 ) {
     LazyColumn(
         modifier = modifier
@@ -42,7 +43,12 @@ fun CharactersList(
             contentType = characters.itemContentType{"characters"}
         ) {
             characters[it]?.let {
-                CharacterCard(character = it) {}
+                CharacterCard(
+                    character = it,
+                    onCardClick = {
+                        onCardClick(it.id)
+                    }
+                )
                 Spacer(modifier = Modifier
                     .fillMaxWidth()
                     .height(10.dp))

@@ -1,9 +1,6 @@
 package com.engineerfred.kotlin.core.network
 
-import android.net.http.HttpException
-import android.os.Build
 import android.util.Log
-import androidx.annotation.RequiresExtension
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import java.net.ConnectException
@@ -35,11 +32,11 @@ class CharactersPaginationSource @Inject constructor(
             )
         } catch (ex: Exception ) {
             Log.i(TAG, "Whoops! $ex")
-            return when (ex) {
-                is UnknownHostException -> {
+            return when {
+                ex is UnknownHostException -> {
                     LoadResult.Error(Throwable("Unable to connect to the server!"))
                 }
-                is ConnectException -> {
+                ex is ConnectException || ex.toString().contains("java.lang.Throwable") -> {
                     LoadResult.Error(Throwable("No internet connection!"))
                 }
                 else -> {

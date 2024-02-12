@@ -32,7 +32,7 @@ import coil.compose.AsyncImage
 import coil.request.CachePolicy
 import coil.request.ImageRequest
 import com.engineerfred.kotlin.core.theme.theme.RIckyMortyFinaleTheme
-import com.engineerfred.kotlin.feature_characters.domain.DomainCharacter
+import com.engineerfred.kotlin.feature_characters.domain.model.Character
 import kotlinx.coroutines.Dispatchers
 import java.util.Locale
 
@@ -40,7 +40,7 @@ import java.util.Locale
 @Composable
 fun CharacterCard(
     modifier: Modifier = Modifier,
-    character: DomainCharacter,
+    character: Character,
     onCardClick: () -> Unit
 ) {
 
@@ -58,7 +58,7 @@ fun CharacterCard(
     // Load and display the image with AsyncImage
 
     Card(
-        onClick = { /*TODO*/ },
+        onClick = { onCardClick.invoke() },
         modifier = modifier.fillMaxWidth().height(185.dp),
         shape = RoundedCornerShape(12.dp)
     ) {
@@ -151,7 +151,7 @@ private fun StatusDotPreview() {
 @Composable
 private fun CharacterCardPreview() {
     RIckyMortyFinaleTheme {
-        CharacterCard(character = DomainCharacter(
+        CharacterCard(character = Character(
             id = 1,
             name = "Fred",
             status = "alive",

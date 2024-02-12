@@ -57,9 +57,13 @@ dependencies {
 
     implementation(project(":feature:characters:ui"))
     implementation(project(":feature:characters:data"))
+    implementation(project(":feature:characters:domain"))
+    implementation(project(":feature:character_details:ui"))
+    implementation(project(":feature:search:ui"))
+//    implementation(project(":feature:character_details:data"))
+//    implementation(project(":feature:character_details:domain"))
     implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
-    implementation(project(":feature:characters:domain"))
     implementation(project(":core:theme"))
 
     implementation(Deps.coreKtx)

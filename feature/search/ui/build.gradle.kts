@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.engineerfred.kotlin.feature_character_details.ui"
+    namespace = "com.engineerfred.kotlin.feature_search.ui"
     compileSdk = 34
 
     defaultConfig {
@@ -25,12 +25,16 @@ android {
             )
         }
     }
+
+
     buildFeatures {
         compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.1"
     }
+
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
@@ -41,10 +45,9 @@ android {
 }
 
 dependencies {
-
+    implementation(project(":core:common"))
     implementation(project(":core:feature_api"))
     implementation(project(":core:theme"))
-    implementation(project(":core:common"))
 
     implementation(Deps.coreKtx)
     implementation(Deps.appCompat)
@@ -54,9 +57,9 @@ dependencies {
     androidTestImplementation(Deps.espressoCore)
     compose()
     hilt()
-
+    paging()
+    implementation(Deps.coil)
 }
-
 kapt {
     correctErrorTypes = true
 }
